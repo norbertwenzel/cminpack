@@ -108,6 +108,8 @@ if (USE_BLAS)
     set_target_properties(cminpack PROPERTIES LINK_FLAGS "${CBLAS_LINKER_FLAGS}")
     target_compile_definitions(cminpack PUBLIC USE_CBLAS)
   endif()
+
+  hunter_add_package(OpenBLAS)
 endif()
 
 install (TARGETS cminpack
