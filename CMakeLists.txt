@@ -107,9 +107,12 @@ if (USE_BLAS)
     target_link_libraries(cminpack PUBLIC ${CBLAS_LIBRARIES})
     set_target_properties(cminpack PROPERTIES LINK_FLAGS "${CBLAS_LINKER_FLAGS}")
     target_compile_definitions(cminpack PUBLIC USE_CBLAS)
+  else()
+    hunter_add_package(OpenBLAS)
+    find_package(OpenBLAS CONFIG REQUIRED)
+    target_link_libraries(cminpack OpenBLAS::OpenBLAS)
+    target_compile_definitions(cminpack PUBLIC USE_CBLAS)
   endif()
-
-  hunter_add_package(OpenBLAS)
 endif()
 
 install (TARGETS cminpack
