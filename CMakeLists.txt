@@ -3,6 +3,12 @@
 # to the root binary directory of the project as ${CMINPACK_BINARY_DIR}.
 cmake_minimum_required (VERSION 2.8.9)
 
+include(cmake/HunterGate.cmake)
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.23.155.tar.gz"
+    SHA1 "6421d63cc4fd78b8622e863c6b1dcabce98e1216"
+)
+
 if (NOT DEFINED CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE Release CACHE STRING "Build type")
 endif ()
